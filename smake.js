@@ -1,5 +1,5 @@
 const { LLVM_Darwin } = require('smake');
-const { addLibs, addFrameworks } = require('@smake/libs');
+const { addLibs, framework } = require('@smake/libs');
 const { co_Darwin } = require('@smake/co');
 const { buffer } = require('@smake/buffer');
 const { udp } = require('./lib');
@@ -23,9 +23,12 @@ class test extends LLVM_Darwin {
   ];
 }
 
+const k = new co_darwin_arm64();
+console.log(k.outputFileBasename);
+
 module.exports = {
   targets: [
     co_darwin_arm64,
-    addLibs(addFrameworks(test, co_darwin_arm64), buffer, udp),
+    addLibs(test, framework(co_darwin_arm64), buffer, udp),
   ],
 };
