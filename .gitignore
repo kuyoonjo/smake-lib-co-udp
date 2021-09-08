@@ -11,3 +11,4 @@
 /package-lock.json
 /compile_commands.json
 .ninja_log
+/.cache
