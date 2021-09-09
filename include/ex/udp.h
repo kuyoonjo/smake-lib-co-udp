@@ -22,7 +22,7 @@ public:
   }
 
   int sendto(char const *str, const ipaddr<T> &dst_ipaddr, int ms = -1) {
-    return co::sendto(m_socket, str, std::strlen(str), &dst_ipaddr.sockaddr,
+    return co::sendto(m_socket, str, strlen(str), &dst_ipaddr.sockaddr,
                       sizeof(dst_ipaddr.sockaddr), ms);
   }
 

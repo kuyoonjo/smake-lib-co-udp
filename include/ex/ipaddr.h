@@ -46,7 +46,7 @@ inline bool operator==(const ex::ipaddr<ex::v6> &c1,
   return (c1.sockaddr.sin6_port == c2.sockaddr.sin6_port &&
           c1.sockaddr.sin6_scope_id == c2.sockaddr.sin6_scope_id &&
           c1.sockaddr.sin6_flowinfo == c2.sockaddr.sin6_flowinfo &&
-          std::memcmp(&c1.sockaddr.sin6_addr, &c2.sockaddr.sin6_addr,
+          memcmp(&c1.sockaddr.sin6_addr, &c2.sockaddr.sin6_addr,
                       sizeof(c1.sockaddr.sin6_addr)) == 0);
 }
 
@@ -55,7 +55,7 @@ inline bool operator!=(const ex::ipaddr<ex::v6> &c1,
   return (c1.sockaddr.sin6_port != c2.sockaddr.sin6_port ||
           c1.sockaddr.sin6_scope_id != c2.sockaddr.sin6_scope_id ||
           c1.sockaddr.sin6_flowinfo != c2.sockaddr.sin6_flowinfo ||
-          std::memcmp(&c1.sockaddr.sin6_addr, &c2.sockaddr.sin6_addr,
+          memcmp(&c1.sockaddr.sin6_addr, &c2.sockaddr.sin6_addr,
                       sizeof(c1.sockaddr.sin6_addr)) != 0);
 }
 } // namespace ex
